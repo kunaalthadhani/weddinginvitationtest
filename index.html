@@ -21,74 +21,43 @@
 
   <main class="phone">
 
-    <!-- ============== 1. ENVELOPE ============== -->
-    <section class="screen screen--envelope" id="screen-envelope">
-      <div class="envelope" id="envelope">
-        <div class="envelope__body"></div>
-        <div class="envelope__flap envelope__flap--top"></div>
-        <div class="envelope__flap envelope__flap--left"></div>
-        <div class="envelope__flap envelope__flap--right"></div>
-        <div class="envelope__flap envelope__flap--bottom"></div>
-        <button class="seal" id="seal" aria-label="Open invitation">
-          <svg class="seal__svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <radialGradient id="waxGrad" cx="40%" cy="35%" r="70%">
-                <stop offset="0%" stop-color="#e9a6a0" />
-                <stop offset="55%" stop-color="#c97f7f" />
-                <stop offset="100%" stop-color="#9d5b5b" />
-              </radialGradient>
-              <filter id="waxShadow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
-                <feOffset dx="2" dy="4" result="off" />
-                <feComponentTransfer><feFuncA type="linear" slope="0.35"/></feComponentTransfer>
-                <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-              <filter id="waxBevel">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur"/>
-                <feSpecularLighting in="blur" surfaceScale="3" specularConstant="1.2" specularExponent="18" lighting-color="#fff" result="spec">
-                  <feDistantLight azimuth="135" elevation="45"/>
-                </feSpecularLighting>
-                <feComposite in="spec" in2="SourceAlpha" operator="in" result="specOut"/>
-                <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
-              </filter>
-            </defs>
+    <!-- ============== 1. VEIL (cover) ============== -->
+    <section class="screen screen--cover" id="screen-cover">
+      <button class="veil" id="veil" aria-label="Open invitation">
+        <div class="veil__shimmer" aria-hidden="true"></div>
 
-            <!-- wax blob with irregular edge -->
-            <path d="M100 8
-                     C 140 8, 178 30, 188 70
-                     C 196 102, 184 138, 158 162
-                     C 138 180, 110 192, 90 188
-                     C 58 184, 26 162, 14 128
-                     C 4 96, 14 58, 40 32
-                     C 60 14, 80 8, 100 8 Z"
-                  fill="url(#waxGrad)" filter="url(#waxShadow)"/>
+        <div class="veil__content">
+          <div class="veil__ornament" aria-hidden="true">
+            <svg viewBox="0 0 120 14" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0"  y1="7" x2="42" y2="7" stroke="#b8826a" stroke-width="0.8" opacity="0.6"/>
+              <circle cx="60" cy="7" r="2.5" fill="#b8826a" opacity="0.85"/>
+              <circle cx="50" cy="7" r="1.2" fill="#b8826a" opacity="0.6"/>
+              <circle cx="70" cy="7" r="1.2" fill="#b8826a" opacity="0.6"/>
+              <line x1="78" y1="7" x2="120" y2="7" stroke="#b8826a" stroke-width="0.8" opacity="0.6"/>
+            </svg>
+          </div>
 
-            <!-- inner ring -->
-            <circle cx="100" cy="100" r="72" fill="none" stroke="#8a4a4a" stroke-width="1" opacity="0.45"/>
-            <circle cx="100" cy="100" r="68" fill="none" stroke="#f4c6c2" stroke-width="0.6" opacity="0.5"/>
+          <p class="veil__eyebrow">An invitation</p>
 
-            <!-- monogram K & R -->
-            <g filter="url(#waxBevel)" fill="#7a3838" opacity="0.92">
-              <text x="62" y="118" font-family="'Cinzel', serif" font-size="64" font-weight="500" text-anchor="middle">K</text>
-              <text x="100" y="115" font-family="'Italianno', cursive" font-size="46" text-anchor="middle" font-style="italic">&amp;</text>
-              <text x="138" y="118" font-family="'Cinzel', serif" font-size="64" font-weight="500" text-anchor="middle">R</text>
-            </g>
+          <h1 class="veil__monogram">
+            <span>K</span><em>&amp;</em><span>R</span>
+          </h1>
 
-            <!-- flourish underline -->
-            <path d="M58 138 Q 100 152 142 138" stroke="#7a3838" stroke-width="1.2" fill="none" opacity="0.7"/>
-            <circle cx="100" cy="146" r="1.6" fill="#7a3838" opacity="0.7"/>
+          <p class="veil__date">December 1, 2026</p>
+
+          <p class="veil__exclusive">
+            <span>This invitation is</span>
+            <span>exclusive for you</span>
+          </p>
+        </div>
+
+        <div class="veil__tap" id="veil-tap-hint">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>
           </svg>
-        </button>
-      </div>
-
-      <p class="exclusive-text">
-        <span class="line-1">This invitation is</span>
-        <span class="line-2">exclusive for you</span>
-      </p>
-
-      <div class="tap-hint" id="tap-hint">
-        <span>Tap the seal to open</span>
-      </div>
+          <span>Tap to lift the veil</span>
+        </div>
+      </button>
     </section>
 
 

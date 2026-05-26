@@ -20,34 +20,26 @@
   const RSVP_ENDPOINT = ''; // e.g. 'https://script.google.com/macros/s/AKfy.../exec'
 
   // ============================================================
-  // 1. ENVELOPE → MAIN INVITE
+  // 1. VEIL LIFT → MAIN INVITE
   // ============================================================
-  const envelope = document.getElementById('envelope');
-  const seal     = document.getElementById('seal');
-  const tapHint  = document.getElementById('tap-hint');
+  const veil = document.getElementById('veil');
 
-  const openEnvelope = () => {
-    if (envelope.classList.contains('is-open')) return;
-    envelope.classList.add('is-open');
-    if (tapHint) tapHint.classList.add('is-hidden-soft');
+  const liftVeil = () => {
+    if (veil.classList.contains('is-lifted')) return;
+    veil.classList.add('is-lifted');
 
-    // Start music quietly on the first user gesture (browsers require this).
+    // Start music on the first user gesture (browsers require this).
     tryStartMusic();
 
-    // Timeline (see styles.css):
-    //   0.00s  Seal lifts (1.1s)
-    //   0.45s  Top flap (1.4s)
-    //   0.95s  L+R flaps (1.4s)
-    //   1.45s  Bottom flap (1.4s)
-    //   2.40s  Envelope fades (1.0s)
-    //   3.20s  Begin smooth scroll to the invite
+    // Veil lift takes 1.8s; scroll begins as it's nearly off-screen
+    // so the invite is visible the moment the veil clears.
     setTimeout(() => {
       document.getElementById('screen-invite')
         .scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 3200);
+    }, 1400);
   };
 
-  seal.addEventListener('click', openEnvelope);
+  veil.addEventListener('click', liftVeil);
 
   // ============================================================
   // 2. SMOOTH "View Details" SCROLL
