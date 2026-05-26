@@ -262,7 +262,7 @@
   // so reveals cascade gracefully when the section enters view.
   const sectionMap = [
     ['#screen-invite',    ['.invite-intro', '.couple', '.invite-sub', '.date-block', '.cta']],
-    ['#screen-countdown', ['.section-eyebrow', '.section-title', '.countdown', '.eyebrow--small', '.countdown-poem']],
+    ['#screen-countdown', ['.section-eyebrow', '.section-title', '.countdown', '.eyebrow--small', '.countdown-poem', '.countdown-divider', '.countdown-blessing']],
     ['#screen-venue',     ['.section-eyebrow', '.section-title', '.venue-card']],
     ['#screen-program',   ['.monogram-mini', '.section-eyebrow', '.section-title', '.program-date', '.program', '.program-note']],
     ['#screen-rsvp',      ['.section-eyebrow', '.section-title', '.rsvp-note', '.rsvp-form']],
