@@ -21,8 +21,21 @@
 
   <main class="phone">
 
-    <!-- ============== 1. VEIL (cover) ============== -->
-    <section class="screen screen--cover" id="screen-cover">
+    <!-- ============== 1. MAIN INVITE (with veil overlay) ============== -->
+    <section class="screen screen--invite" id="screen-invite">
+      <!-- Background video.
+           Drop your file at assets/invite-bg.mp4 (and optional poster at assets/invite-bg.jpg). -->
+      <video
+        class="bg-video"
+        autoplay muted loop playsinline preload="auto"
+        poster="assets/invite-bg.jpg"
+        aria-hidden="true">
+        <source src="assets/invite-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="bg-video__overlay" aria-hidden="true"></div>
+
+      <!-- The veil sits on top of this screen. Tapping it lifts the veil
+           upward, revealing the invite directly underneath — no scroll. -->
       <button class="veil" id="veil" aria-label="Open invitation">
         <div class="veil__shimmer" aria-hidden="true"></div>
 
@@ -58,21 +71,6 @@
           <span>Tap to lift the veil</span>
         </div>
       </button>
-    </section>
-
-
-    <!-- ============== 2. MAIN INVITE ============== -->
-    <section class="screen screen--invite" id="screen-invite">
-      <!-- Background video.
-           Drop your file at assets/invite-bg.mp4 (and optional poster at assets/invite-bg.jpg). -->
-      <video
-        class="bg-video"
-        autoplay muted loop playsinline preload="auto"
-        poster="assets/invite-bg.jpg"
-        aria-hidden="true">
-        <source src="assets/invite-bg.mp4" type="video/mp4" />
-      </video>
-      <div class="bg-video__overlay" aria-hidden="true"></div>
 
       <div class="floral floral--top" aria-hidden="true"></div>
 

@@ -20,23 +20,21 @@
   const RSVP_ENDPOINT = ''; // e.g. 'https://script.google.com/macros/s/AKfy.../exec'
 
   // ============================================================
-  // 1. VEIL LIFT → MAIN INVITE
+  // 1. VEIL LIFT — reveals the invite sitting beneath it
   // ============================================================
   const veil = document.getElementById('veil');
 
   const liftVeil = () => {
     if (veil.classList.contains('is-lifted')) return;
     veil.classList.add('is-lifted');
-
     // Start music on the first user gesture (browsers require this).
     tryStartMusic();
-
-    // Veil lift takes 1.8s; scroll begins as it's nearly off-screen
-    // so the invite is visible the moment the veil clears.
+    // Trigger the invite cascade ~0.4s into the lift so the names
+    // appear to be revealed as the veil rises.
     setTimeout(() => {
-      document.getElementById('screen-invite')
-        .scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 1400);
+      document.querySelectorAll('#screen-invite .fade-in')
+        .forEach(el => el.classList.add('is-visible'));
+    }, 400);
   };
 
   veil.addEventListener('click', liftVeil);
@@ -267,6 +265,9 @@
 
   // Reveal the children of a section together as soon as the section
   // enters view — so the stagger plays as one graceful cascade.
+  // (screen-invite is excluded: it's already in view under the veil,
+  // and its cascade is triggered by liftVeil() instead.)
+  const inviteSection = document.getElementById('screen-invite');
   const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -277,7 +278,7 @@
     });
   }, { threshold: 0.18 });
 
-  // Observe each unique section
   Array.from(new Set(tracked.map(t => t.section)))
+    .filter(section => section !== inviteSection)
     .forEach(section => sectionObserver.observe(section));
 })();
