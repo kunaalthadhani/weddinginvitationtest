@@ -27,8 +27,19 @@
   const liftVeil = () => {
     if (veil.classList.contains('is-lifted')) return;
     veil.classList.add('is-lifted');
-    // Start music on the first user gesture (browsers require this).
+
+    // Kick the background video on the first user gesture
+    // (iOS/Safari often block muted autoplay until interaction).
+    const bgVideo = document.getElementById('bg-video');
+    if (bgVideo) {
+      bgVideo.muted = true;
+      const p = bgVideo.play();
+      if (p && p.catch) p.catch(() => {/* still blocked — give up silently */});
+    }
+
+    // Start music on the first user gesture too.
     tryStartMusic();
+
     // Trigger the invite cascade ~0.4s into the lift so the names
     // appear to be revealed as the veil rises.
     setTimeout(() => {
@@ -38,6 +49,16 @@
   };
 
   veil.addEventListener('click', liftVeil);
+
+  // Try to start the video as soon as the page loads (works on most
+  // desktop browsers + Android; iOS may still wait for the tap).
+  window.addEventListener('load', () => {
+    const bgVideo = document.getElementById('bg-video');
+    if (!bgVideo) return;
+    bgVideo.muted = true;
+    const p = bgVideo.play();
+    if (p && p.catch) p.catch(() => {/* will start on veil tap */});
+  });
 
   // ============================================================
   // 2. SMOOTH "View Details" SCROLL

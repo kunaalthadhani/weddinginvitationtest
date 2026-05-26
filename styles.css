@@ -295,6 +295,15 @@ body {
   filter: saturate(0.9) brightness(1.02);
 }
 
+/* Suppress iOS / Android native video controls + play overlay */
+.bg-video::-webkit-media-controls { display: none !important; }
+.bg-video::-webkit-media-controls-panel { display: none !important; }
+.bg-video::-webkit-media-controls-play-button { display: none !important; }
+.bg-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 /* Translucent cream overlay so the script text remains readable on any video */
 .bg-video__overlay {
   position: absolute;
