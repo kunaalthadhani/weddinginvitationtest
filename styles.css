@@ -227,23 +227,27 @@ body {
 
 .veil__tap {
   position: absolute;
-  bottom: 48px;
+  bottom: 56px;
   left: 0; right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 13px;
-  letter-spacing: 1.5px;
+  font-size: 18px;
+  letter-spacing: 2px;
   color: var(--rose-deep);
   opacity: 0;
   animation:
     gentleRise 1.4s cubic-bezier(0.16, 1, 0.3, 1) 2.2s forwards,
     tapPulse   2.4s ease-in-out 3.6s infinite;
 }
-.veil__tap svg { transform: translateY(-1px); }
+.veil__tap svg {
+  width: 18px;
+  height: 18px;
+  transform: translateY(-1px);
+}
 
 @keyframes tapPulse {
   0%, 100% { opacity: 0.55; transform: translateY(0); }
