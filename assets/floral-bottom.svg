@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 180" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <radialGradient id="peonyB" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fff0e8"/>
+      <stop offset="55%" stop-color="#f1c7be"/>
+      <stop offset="100%" stop-color="#c97f7f"/>
+    </radialGradient>
+    <radialGradient id="peonyB2" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#ffeae0"/>
+      <stop offset="60%" stop-color="#e8b5ab"/>
+      <stop offset="100%" stop-color="#a85f5a"/>
+    </radialGradient>
+    <radialGradient id="budB" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#f9d8cf"/>
+      <stop offset="100%" stop-color="#c97f7f"/>
+    </radialGradient>
+    <linearGradient id="leafB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9bab8f"/>
+      <stop offset="100%" stop-color="#6f8068"/>
+    </linearGradient>
+    <radialGradient id="pearlB" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e8d6c8"/>
+    </radialGradient>
+
+    <g id="peony-shape-b">
+      <circle r="22" fill="url(#peonyB)"/>
+      <g fill="#d9a097" opacity="0.35">
+        <ellipse cx="-10" cy="-8" rx="11" ry="8" transform="rotate(-25)"/>
+        <ellipse cx="10"  cy="-8" rx="11" ry="8" transform="rotate(25)"/>
+        <ellipse cx="0"   cy="10" rx="12" ry="8"/>
+      </g>
+      <circle r="6" fill="#a85f5a" opacity="0.4"/>
+      <circle r="3" fill="#7a3838" opacity="0.5"/>
+    </g>
+
+    <g id="leaf-shape-b">
+      <path d="M0 0 Q 12 -6 24 0 Q 12 6 0 0 Z" fill="url(#leafB)"/>
+      <path d="M0 0 L 24 0" stroke="#5a6c52" stroke-width="0.6" opacity="0.6"/>
+    </g>
+  </defs>
+
+  <!-- Soft watercolor wash at bottom -->
+  <ellipse cx="220" cy="180" rx="280" ry="60" fill="#f5d6cc" opacity="0.25"/>
+
+  <!-- Greenery sweep (mirrored from top, anchored to bottom) -->
+  <g opacity="0.85">
+    <path d="M -10 150 Q 100 190 220 140 Q 340 90 460 150" fill="none" stroke="#8a9c7e" stroke-width="1.5" opacity="0.5"/>
+
+    <use href="#leaf-shape-b" transform="translate(40 148)  rotate(20)  scale(0.9)"/>
+    <use href="#leaf-shape-b" transform="translate(80 156)  rotate(10)  scale(1.1)"/>
+    <use href="#leaf-shape-b" transform="translate(140 150) rotate(-10) scale(1.2)"/>
+    <use href="#leaf-shape-b" transform="translate(200 132) rotate(-20) scale(1.0)"/>
+    <use href="#leaf-shape-b" transform="translate(260 118) rotate(-25) scale(1.1)"/>
+    <use href="#leaf-shape-b" transform="translate(320 120) rotate(-15) scale(1.2)"/>
+    <use href="#leaf-shape-b" transform="translate(380 138) rotate(10)  scale(1.0)"/>
+    <use href="#leaf-shape-b" transform="translate(420 154) rotate(25)  scale(0.9)"/>
+  </g>
+
+  <!-- Pink peonies clustered bottom corners -->
+  <g>
+    <use href="#peony-shape-b" transform="translate(-10 190) scale(1.4)"/>
+    <use href="#peony-shape-b" transform="translate(40 150)  scale(0.9)"/>
+    <use href="#peony-shape-b" transform="translate(75 185)  scale(1.1)"/>
+
+    <use href="#peony-shape-b" transform="translate(440 190) scale(1.5)"/>
+    <use href="#peony-shape-b" transform="translate(395 155) scale(1.0)"/>
+    <use href="#peony-shape-b" transform="translate(360 185) scale(0.85)"/>
+  </g>
+
+  <!-- Small buds & pearls scattered -->
+  <g opacity="0.9">
+    <circle cx="120" cy="160" r="6"   fill="url(#budB)"/>
+    <circle cx="160" cy="130" r="4"   fill="url(#budB)"/>
+    <circle cx="250" cy="160" r="5"   fill="url(#budB)"/>
+    <circle cx="300" cy="145" r="6"   fill="url(#budB)"/>
+
+    <circle cx="105" cy="125" r="4"   fill="url(#pearlB)" stroke="#b89a85" stroke-width="0.3"/>
+    <circle cx="190" cy="162" r="3.5" fill="url(#pearlB)" stroke="#b89a85" stroke-width="0.3"/>
+    <circle cx="285" cy="120" r="4"   fill="url(#pearlB)" stroke="#b89a85" stroke-width="0.3"/>
+    <circle cx="350" cy="130" r="3.5" fill="url(#pearlB)" stroke="#b89a85" stroke-width="0.3"/>
+  </g>
+</svg>

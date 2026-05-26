@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#f5ece4" />
+  <title>Kunaal &amp; Rachel — Wedding Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Italianno&family=Cinzel:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Audio (drop your own file at assets/music.mp3) -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <main class="phone">
+
+    <!-- ============== 1. ENVELOPE ============== -->
+    <section class="screen screen--envelope" id="screen-envelope">
+      <div class="envelope" id="envelope">
+        <div class="envelope__body"></div>
+        <div class="envelope__flap envelope__flap--top"></div>
+        <div class="envelope__flap envelope__flap--left"></div>
+        <div class="envelope__flap envelope__flap--right"></div>
+        <div class="envelope__flap envelope__flap--bottom"></div>
+        <button class="seal" id="seal" aria-label="Open invitation">
+          <svg class="seal__svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="waxGrad" cx="40%" cy="35%" r="70%">
+                <stop offset="0%" stop-color="#e9a6a0" />
+                <stop offset="55%" stop-color="#c97f7f" />
+                <stop offset="100%" stop-color="#9d5b5b" />
+              </radialGradient>
+              <filter id="waxShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+                <feOffset dx="2" dy="4" result="off" />
+                <feComponentTransfer><feFuncA type="linear" slope="0.35"/></feComponentTransfer>
+                <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="waxBevel">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur"/>
+                <feSpecularLighting in="blur" surfaceScale="3" specularConstant="1.2" specularExponent="18" lighting-color="#fff" result="spec">
+                  <feDistantLight azimuth="135" elevation="45"/>
+                </feSpecularLighting>
+                <feComposite in="spec" in2="SourceAlpha" operator="in" result="specOut"/>
+                <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+              </filter>
+            </defs>
+
+            <!-- wax blob with irregular edge -->
+            <path d="M100 8
+                     C 140 8, 178 30, 188 70
+                     C 196 102, 184 138, 158 162
+                     C 138 180, 110 192, 90 188
+                     C 58 184, 26 162, 14 128
+                     C 4 96, 14 58, 40 32
+                     C 60 14, 80 8, 100 8 Z"
+                  fill="url(#waxGrad)" filter="url(#waxShadow)"/>
+
+            <!-- inner ring -->
+            <circle cx="100" cy="100" r="72" fill="none" stroke="#8a4a4a" stroke-width="1" opacity="0.45"/>
+            <circle cx="100" cy="100" r="68" fill="none" stroke="#f4c6c2" stroke-width="0.6" opacity="0.5"/>
+
+            <!-- monogram K & R -->
+            <g filter="url(#waxBevel)" fill="#7a3838" opacity="0.92">
+              <text x="62" y="118" font-family="'Cinzel', serif" font-size="64" font-weight="500" text-anchor="middle">K</text>
+              <text x="100" y="115" font-family="'Italianno', cursive" font-size="46" text-anchor="middle" font-style="italic">&amp;</text>
+              <text x="138" y="118" font-family="'Cinzel', serif" font-size="64" font-weight="500" text-anchor="middle">R</text>
+            </g>
+
+            <!-- flourish underline -->
+            <path d="M58 138 Q 100 152 142 138" stroke="#7a3838" stroke-width="1.2" fill="none" opacity="0.7"/>
+            <circle cx="100" cy="146" r="1.6" fill="#7a3838" opacity="0.7"/>
+          </svg>
+        </button>
+      </div>
+
+      <p class="exclusive-text">
+        <span class="line-1">This invitation is</span>
+        <span class="line-2">exclusive for you</span>
+      </p>
+
+      <div class="tap-hint" id="tap-hint">
+        <span>Tap the seal to open</span>
+      </div>
+    </section>
+
+
+    <!-- ============== 2. MAIN INVITE ============== -->
+    <section class="screen screen--invite" id="screen-invite">
+      <!-- Background video.
+           Drop your file at assets/invite-bg.mp4 (and optional poster at assets/invite-bg.jpg). -->
+      <video
+        class="bg-video"
+        autoplay muted loop playsinline preload="auto"
+        poster="assets/invite-bg.jpg"
+        aria-hidden="true">
+        <source src="assets/invite-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="bg-video__overlay" aria-hidden="true"></div>
+
+      <div class="floral floral--top" aria-hidden="true"></div>
+
+      <p class="invite-intro">Together with their families</p>
+
+      <h1 class="couple">
+        <span class="couple__name">Kunaal</span>
+        <span class="couple__amp">&amp;</span>
+        <span class="couple__name">Rachel</span>
+      </h1>
+
+      <p class="invite-sub">
+        request the honour of your presence<br/>
+        as they celebrate their wedding
+      </p>
+
+      <div class="date-block">
+        <span class="date-line"></span>
+        <div class="date-text">
+          <span class="date-day">Tuesday</span>
+          <span class="date-main">December 1, 2026</span>
+          <span class="date-loc">Abu Dhabi, UAE</span>
+        </div>
+        <span class="date-line"></span>
+      </div>
+
+      <button class="cta" data-scroll-to="screen-countdown">View Details</button>
+
+      <div class="floral floral--bottom" aria-hidden="true"></div>
+    </section>
+
+
+    <!-- ============== 3. COUNTDOWN ============== -->
+    <section class="screen screen--countdown" id="screen-countdown">
+      <div class="countdown-top">
+        <p class="section-eyebrow">December 1, 2026</p>
+        <h2 class="section-title">Counting down to forever</h2>
+
+        <div class="countdown" id="countdown">
+          <div class="countdown__cell">
+            <span class="countdown__num" id="cd-days">00</span>
+            <span class="countdown__label">Days</span>
+          </div>
+          <div class="countdown__cell">
+            <span class="countdown__num" id="cd-hours">00</span>
+            <span class="countdown__label">Hours</span>
+          </div>
+          <div class="countdown__cell">
+            <span class="countdown__num" id="cd-minutes">00</span>
+            <span class="countdown__label">Minutes</span>
+          </div>
+          <div class="countdown__cell">
+            <span class="countdown__num" id="cd-seconds">00</span>
+            <span class="countdown__label">Seconds</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="countdown-bottom">
+        <p class="section-eyebrow eyebrow--small">until our wedding day</p>
+        <p class="countdown-poem">Every moment brings us closer<br/>to the start of forever</p>
+      </div>
+    </section>
+
+
+    <!-- ============== 4. VENUE / MAP ============== -->
+    <section class="screen screen--venue" id="screen-venue">
+      <p class="section-eyebrow">The Wedding</p>
+      <h2 class="section-title">Where it all begins</h2>
+
+      <div class="venue-card">
+        <div class="venue-card__name">Emirates Palace</div>
+        <div class="venue-card__addr">West Corniche Road, Abu Dhabi, UAE</div>
+
+        <div class="map-wrap">
+          <iframe
+            class="map"
+            src="https://maps.google.com/maps?q=Emirates%20Palace%20Abu%20Dhabi&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Wedding venue map">
+          </iframe>
+        </div>
+
+        <div class="venue-actions">
+          <a class="btn btn--primary" href="https://www.google.com/maps/dir/?api=1&destination=Emirates+Palace+Abu+Dhabi" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-7.58-8-13a8 8 0 0 1 16 0c0 5.42-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg>
+            Open in Maps
+          </a>
+          <a class="btn btn--ghost" id="add-to-cal" href="#">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Add to Calendar
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============== 5. PROGRAM ============== -->
+    <section class="screen screen--program" id="screen-program">
+      <div class="monogram-mini" aria-hidden="true">
+        <span>K</span><em>&amp;</em><span>R</span>
+      </div>
+
+      <p class="section-eyebrow">Wedding Program</p>
+      <h2 class="section-title">A day to remember</h2>
+      <p class="program-date">Tuesday, December 1, 2026</p>
+
+      <ul class="program">
+        <li class="program__item">
+          <span class="program__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="#9d6a5e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 26V12a8 8 0 0 1 16 0v14"/><path d="M16 4v3"/><circle cx="16" cy="12" r="2"/><path d="M6 26h20"/></svg>
+          </span>
+          <span class="program__time">5:30 PM</span>
+          <span class="program__label">Nikkah Ceremony</span>
+        </li>
+        <li class="program__item">
+          <span class="program__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="#9d6a5e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27s-9-5.5-9-13a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 7.5-9 13-9 13z"/></svg>
+          </span>
+          <span class="program__time">7:00 PM</span>
+          <span class="program__label">Reception &amp; Photos</span>
+        </li>
+        <li class="program__item">
+          <span class="program__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="#9d6a5e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11"/><path d="M9 18c2 3 12 3 14 0"/><path d="M11 14h.01M21 14h.01"/></svg>
+          </span>
+          <span class="program__time">8:00 PM</span>
+          <span class="program__label">Walima Dinner</span>
+        </li>
+        <li class="program__item">
+          <span class="program__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="#9d6a5e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 26h20v-8a4 4 0 0 0-4-4H10a4 4 0 0 0-4 4z"/><path d="M11 14V9M16 14V8M21 14V9"/><path d="M11 9c0-1 1-2 0-3M16 8c0-1 1-2 0-3M21 9c0-1 1-2 0-3"/></svg>
+          </span>
+          <span class="program__time">10:00 PM</span>
+          <span class="program__label">Cake Cutting &amp; Celebration</span>
+        </li>
+      </ul>
+
+      <p class="program-note">Modest attire kindly requested</p>
+    </section>
+
+
+    <!-- ============== 6. RSVP ============== -->
+    <section class="screen screen--rsvp" id="screen-rsvp">
+      <p class="section-eyebrow">Kindly Respond</p>
+      <h2 class="section-title">Will you be joining us?</h2>
+      <p class="rsvp-note">Please respond by November 15, 2026</p>
+
+      <form class="rsvp-form" id="rsvp-form" novalidate>
+        <div class="field">
+          <label for="rsvp-name">Full Name</label>
+          <input id="rsvp-name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
+        </div>
+
+        <div class="field">
+          <span class="field__label">Will you attend?</span>
+          <div class="radio-group">
+            <label class="radio">
+              <input type="radio" name="attending" value="Yes" required />
+              <span class="radio__pill">Joyfully accept</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="attending" value="No" />
+              <span class="radio__pill">Regretfully decline</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field" id="guests-field">
+          <label for="rsvp-guests">Number of guests (including you)</label>
+          <input id="rsvp-guests" name="guests" type="number" min="1" max="10" value="1" />
+        </div>
+
+        <div class="field">
+          <label for="rsvp-message">A message for the couple (optional)</label>
+          <textarea id="rsvp-message" name="message" rows="3" placeholder="Wishes, dietary notes, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block" id="rsvp-submit">
+          Send RSVP
+        </button>
+
+        <p class="form-status" id="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+
+
+    <!-- ============== FOOTER ============== -->
+    <footer class="footer">
+      <div class="footer__monogram">Kunaal <em>&amp;</em> Rachel</div>
+      <p class="footer__line">With love, December 1, 2026</p>
+    </footer>
+
+  </main>
+
+  <!-- Floating audio toggle -->
+  <button class="audio-toggle" id="audio-toggle" aria-label="Toggle background music">
+    <svg class="audio-icon audio-icon--on"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/></svg>
+    <svg class="audio-icon audio-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
